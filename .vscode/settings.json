@@ -1,0 +1,7 @@
+// Platzieren Sie Ihre Einstellungen in dieser Datei, um Standard- und Benutzereinstellungen zu überschreiben.
+{
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true
+}

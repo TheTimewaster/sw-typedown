@@ -1,0 +1,7 @@
+{
+  "name": "sw-typedown",
+  "dependencies": {
+    "aurelia-framework": "github:aurelia/framework",
+    "aurelia-router": "github:aurelia/router"
+  }
+}

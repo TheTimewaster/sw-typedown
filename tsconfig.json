@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5",
+        "rootDir": "src",
+        "outDir": "dist",
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "paths": {
+            "src/*": [
+                "src/*"
+            ]
+        },
+        "experimentalDecorators": true
+    },
+    "filesGlob": [
+        "./src/**/*.ts",
+        "typings/index.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "jspm_packages",
+        "dist",
+        "build"
+    ]
+}
