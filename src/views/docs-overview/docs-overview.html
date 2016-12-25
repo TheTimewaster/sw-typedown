@@ -1,3 +1,8 @@
 <template>
-    ${message}
+    <require from="./doc-card"></require>
+    <div class="mdl-grid" style="max-width: 1024px">
+<section repeat.for="doc of docList.documentList" class="mdl-cell mdl-cell--4-col">
+    <doc-card doc-info.bind="doc"></doc-card>
+</section>
+</div>
 </template>

@@ -6,11 +6,10 @@ export class App
     configureRouter(config: RouterConfiguration, router: Router)
     {
         config.title = "Typedown"
-        var conf: RouteConfig
         config.map([
-            { route: "", moduleId: "views/docs-overview/docs-overview", title: "Your Files" },
-            { route: "view/all", moduleId: "views/docs-overview/docs-overview", title: "Your Files" },
-            { route: "view/doc:id", moduleId: "views/docs-edit/docs-edit", name: "File" }
+            { route: "view/all", moduleId: "views/docs-overview/docs-overview", title: "Your Files" , nav:true},
+            { route: "view/doc:id", moduleId: "views/docs-edit/docs-edit", name: "File" },
+            { route: "", redirect: "view/all" }
         ]);
 
         this.router = router;

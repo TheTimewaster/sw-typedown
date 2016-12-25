@@ -1,6 +1,8 @@
 {
   "name": "sw-typedown",
   "dependencies": {
+    "aurelia-binding": "github:aurelia/binding",
+    "aurelia-fetch-client": "github:aurelia/fetch-client",
     "aurelia-framework": "github:aurelia/framework",
     "aurelia-router": "github:aurelia/router"
   }
