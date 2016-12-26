@@ -1,28 +1,20 @@
 <template>
-    <require from="set-attribute"></require>
     <div class="mdl-card mdl-shadow--2dp">
 
         <div class=" mdl-card__title ">
             <h2 class="mdl-card__title-text ">${docInfo.title}</h2>
         </div>
         <div class="mdl-card__supporting-text ">
-            ${doc.title}
+            ${docInfo.title}
         </div>
         <div class="mdl-card__actions mdl-card--border ">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect ">EDIT</a>
+            <button class="mdl-button mdl-js-button mdl-button--icon btn-fav">
+                <i class="material-icons">save</i>
+            </button>
+            <div class="mdl-layout-spacer"></div>
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect ">edit</a>
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">remove</a>
         </div>
-        <div class="mdl-card__menu ">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon " id="${'document-menu-' + docInfo.id}">
-      <i class="material-icons ">more_vert</i>
-    </button>
-            <ul data-mdl-for="${'document-menu-' + docInfo.id}" class="mdl-menu mdl-js-menu mdl-menu--bottom-right">
-                <li class="mdl-menu__item ">Some Action</li>
-                <li class="mdl-menu__item ">Another Action</li>
-                <li disabled class="mdl-menu__item ">Disabled Action</li>
-                <li class="mdl-menu__item ">Yet Another Action</li>
-            </ul>
-        </div>
-        <!-- menu -->
 
     </div>
 </template>

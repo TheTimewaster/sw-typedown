@@ -6,15 +6,10 @@ import {DataAttributeObserver} from 'aurelia-binding';
 export class DocCard
 {
     @bindable({ defaultBindingMode: bindingMode.twoWay }) docInfo: Object;
-    _element: Element;
+    private _element: Element;
 
     constructor(element: Element)
     {
         this._element = element;
-    }
-
-    attached()
-    {
-        componentHandler.upgradeAllRegistered();
     }
 }

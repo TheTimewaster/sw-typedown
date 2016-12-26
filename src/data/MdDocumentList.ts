@@ -1,4 +1,4 @@
-export class DocumentList
+export class MdDocumentList
 {
     _documentList: Array<Object>;
     constructor(response: Array<Object>)

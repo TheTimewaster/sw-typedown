@@ -1,7 +1,15 @@
 var gulp = require("gulp");
+var clean = require("gulp-clean");
 var typescript = require("gulp-typescript");
 var htmlmin = require("gulp-htmlmin");
 var sourcemaps = require("gulp-sourcemaps");
+var sass = require("gulp-sass");
+var runsequence = require("run-sequence");
+
+gulp.task("clean",function(){
+    return gulp.src("dist")
+        .pipe(clean({force:true}));
+})
 
 var typescriptCompiler = typescriptCompiler || null;
 gulp.task("build-system", function () {
@@ -24,11 +32,17 @@ gulp.task("build-html", function () {
         .pipe(gulp.dest("dist"));
 });
 
+gulp.task("build-css", function () {
+    return gulp.src("styles/**/*.scss")
+        .pipe(sass())
+        .pipe(gulp.dest("dist"));
+});
+
 gulp.task("copy-resources", function () {
     return gulp.src("src/**/*.json")
         .pipe(gulp.dest("dist"));
 });
 
-gulp.task("build", [ "copy-resources", "build-system", "build-html" ], function (callback) {
-    return callback;
+gulp.task("build", function (callback) {
+    runsequence("clean", [ "copy-resources", "build-system", "build-html", "build-css" ])
 })

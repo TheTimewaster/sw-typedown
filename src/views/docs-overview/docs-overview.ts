@@ -1,15 +1,15 @@
 import { inject } from "aurelia-framework";
-import { DocumentService } from "../../services/DocumentService";
-import { DocumentList } from "../../data/DocumentList";  
+import { MdDocumentService } from "../../services/MdDocumentService";
+import { MdDocumentList } from "../../data/MdDocumentList";  
 
-@inject(DocumentService)
+@inject(MdDocumentService)
 export class DocsOverview
 {
-    _message: string;
-    _service: DocumentService;
-    docList: DocumentList;
+    private _message: string;
+    private _service: MdDocumentService;
+    _mdDocList: MdDocumentList;
 
-    constructor(service: DocumentService)
+    constructor(service: MdDocumentService)
     {
         this._message = "Hello!";
         this._service = service;
@@ -18,11 +18,9 @@ export class DocsOverview
     activate()
     {
         let me = this;
-        this._service.getFiles().then(function (docList: DocumentList)
+        this._service.fetchAllDocuments().then(function (docList: MdDocumentList)
         {
-            me.docList = docList;
+            me._mdDocList = docList;
         });
-
-         window.componentHandler.upgradeAllRegistered();
     }
 }

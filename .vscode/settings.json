@@ -3,5 +3,6 @@
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
-    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    "html.format.unformatted": "abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, img, input, kbd, label, map, object, pre, q, samp, select, small, span, strong, sub, sup, textarea, tt, var"
 }

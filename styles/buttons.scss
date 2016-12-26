@@ -1,0 +1,16 @@
+@import "colors.scss";
+
+.btn-fav
+{
+    i
+    {
+        color: $btn-fav-disabled;
+    }
+}
+
+.btn-create
+{
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+}
