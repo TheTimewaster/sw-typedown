@@ -1,12 +1,15 @@
 <template>
     <div class="mdl-layout mdl-js-layout mdl-layout--no-drawer-button mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
+        <header class="mdl-layout__header mdl-layout__header--seamed">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout__title">Typedown</span>
                 <div class="mdl-layout-spacer"></div>
                 <button class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">refresh</i>
                 </button>
+            </div>
+            <div class="mdl-layout__header-row">
+                <span>Foo</span>
             </div>
         </header>
         <main class="mdl-layout__content">
@@ -15,7 +18,4 @@
             </div>
         </main>
     </div>
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored btn-create">
-        <i class="material-icons">mode_edit</i>
-    </button>
 </template>

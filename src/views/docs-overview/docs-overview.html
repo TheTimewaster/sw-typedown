@@ -1,8 +1,11 @@
 <template>
     <require from="./doc-card"></require>
-    <div class="mdl-grid">
-<section repeat.for="doc of docList.documentList" class="mdl-cell mdl-cell--4-col">
+    <div class="mdl-grid view-all">
+<section repeat.for="doc of mdDocList.documentList" class="mdl-cell mdl-cell--4-col">
     <doc-card doc-info.bind="doc"></doc-card>
 </section>
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored btn-create">
+        <i class="material-icons">mode_edit</i>
+    </button>
 </div>
 </template>

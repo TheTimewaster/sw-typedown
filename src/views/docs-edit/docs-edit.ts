@@ -32,7 +32,7 @@ export class DocsEdit implements RoutableComponentActivate
             me.document = mdDoc;
             me.parsedContent = markdown.toHTML(me.document.content);
 
-            document.querySelectorAll(".md-content")[ 0 ].innerHTML = me.parsedContent;
+            document.querySelectorAll(".view-edit__preview")[ 0 ].innerHTML = me.parsedContent;
         }).catch((error: any) =>
         {
             console.log(error);

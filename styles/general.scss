@@ -14,13 +14,21 @@ body
         display: flex;
     }
 
-    .mdl-grid
+    .view-all
     {
         max-width: 1024px;
 
         .mdl-card
         {
             width: 100%;
+        }
+    }
+
+    .view-edit
+    {
+        .view-edit__border
+        {
+            border-top: 1px solid rgba(0,0,0,.1);
         }
     }
 }

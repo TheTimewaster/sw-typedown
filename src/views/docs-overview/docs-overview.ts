@@ -7,7 +7,7 @@ export class DocsOverview
 {
     private _message: string;
     private _service: MdDocumentService;
-    _mdDocList: MdDocumentList;
+    mdDocList: MdDocumentList;
 
     constructor(service: MdDocumentService)
     {
@@ -20,7 +20,11 @@ export class DocsOverview
         let me = this;
         this._service.fetchAllDocuments().then(function (docList: MdDocumentList)
         {
-            me._mdDocList = docList;
+            me.mdDocList = docList;
         });
+    }
+    attached()
+    {
+        componentHandler.upgradeAllRegistered();
     }
 }
