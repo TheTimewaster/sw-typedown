@@ -13,7 +13,7 @@ export class DocsEdit implements RoutableComponentActivate
 
     public document: MdDocument;
 
-    constructor(service: MdDocumentService, md: Markdown)
+    constructor(service: MdDocumentService)
     {
         this._service = service;
     }
@@ -29,10 +29,12 @@ export class DocsEdit implements RoutableComponentActivate
 
         this._service.getDocument(this._docId).then((mdDoc: MdDocument) =>
         {
+            // parse markdown document
             me.document = mdDoc;
             me.parsedContent = markdown.toHTML(me.document.content);
 
             document.querySelectorAll(".view-edit__preview")[ 0 ].innerHTML = me.parsedContent;
+                    componentHandler.upgradeAllRegistered();
         }).catch((error: any) =>
         {
             console.log(error);

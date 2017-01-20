@@ -25,6 +25,7 @@ export class DocsOverview
     }
     attached()
     {
+        // update componentHandler for MDL
         componentHandler.upgradeAllRegistered();
     }
 }
