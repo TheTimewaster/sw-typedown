@@ -1,19 +1,33 @@
 <template>
     <div class="view-edit md-card mdl-shadow--2dp">
         <div class="edit-toolbar">
-            <h4 class="document-title">${document.title}</h4>
+            <div class="view-edit__info">
+                <h4 class="document-title">${document.title}</h4>
+                <span class="last-edited">Last edited: 17.01.2017 10:56</span>
+            </div>
             <div class="mdl-layout-spacer"></div>
-            <div class="button-bar">
-                <button class="mdl-button mdl-js-button mdl-button--icon">
+            <div class="button-bar" if.bind="!editMode">
+                <button class="mdl-button mdl-js-button mdl-button--icon" click.trigger="switchToEditMode()">
                     <i class="material-icons">edit</i>
                 </button>
                 <button class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">delete</i>
                 </button>
             </div>
+
+            <div class="button-bar" if.bind="editMode">
+                <button class="mdl-button mdl-js-button mdl-button--icon" click.trigger="switchToPreviewMode()">
+                    <i class="material-icons">pageview</i>
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">delete</i>
+                </button>
+            </div>
         </div>
-        <div class="view-edit__preview view-edit__border">
+        <div class="view-edit__preview view-edit__border" show.bind="!editMode">
             <!--md preview goes here-->
+        </div>
+        <div class="view-edit__editor view-edit__md-editor" id="view-edit__md-editor" show.bind="editMode" contenteditable="true">
         </div>
     </div>
 </template>

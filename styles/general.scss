@@ -35,9 +35,14 @@ body
             padding: 0px 48px;
             background-color: white;
 
-            .button-bar, .document-title
+            .button-bar, .view-edit__info
             {
                 margin: 16px 0px;
+            }
+
+            .button-bar
+            {
+                padding: 10px 0px;
             }
 
             &.fixed-top
@@ -46,6 +51,22 @@ body
                 top: 60px;
                 width: 100%;
                 max-width: 768px;
+                padding: 0px;
+            }
+
+            .view-edit__info
+            {
+                h4
+                {
+                    margin: 0;
+                }
+
+                .last-edited
+                {
+                    font-style: italic;
+                    font-size: 12px;
+                    color: #777777
+                }
             }
         }
 
@@ -57,6 +78,19 @@ body
         .view-edit__preview
         {
             padding: 16px 48px;
+        }
+
+        .view-edit__md-editor
+        {
+            padding: 16px 48px;
+            white-space: pre;
+            line-height: 1.5;
+
+            &:focus
+            {
+                outline: none;
+                background-color: #FAFAFA
+            }
         }
     }
 }

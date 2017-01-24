@@ -26,6 +26,11 @@ export class MdDocument
         this._title = title;
     }
 
+    set content(content:string)
+    {
+        this._content = content;
+    }
+
     get title()
     {
         return this._title;
