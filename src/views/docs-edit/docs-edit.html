@@ -1,7 +1,16 @@
 <template>
     <div class="view-edit md-card mdl-shadow--2dp">
-        <div contenteditable="true">
-            ${document.title}
+        <div class="edit-toolbar">
+            <h4 class="document-title">${document.title}</h4>
+            <div class="mdl-layout-spacer"></div>
+            <div class="button-bar">
+                <button class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">delete</i>
+                </button>
+            </div>
         </div>
         <div class="view-edit__preview view-edit__border">
             <!--md preview goes here-->

@@ -26,14 +26,37 @@ body
 
     .view-edit
     {
-            max-width: 768px;
-            margin: 48px auto;
-            padding: 16px 48px;
-    
+        max-width: 768px;
+        margin: 48px auto;
+        
+        .edit-toolbar
+        {
+            display: flex;
+            padding: 0px 48px;
+            background-color: white;
+
+            .button-bar, .document-title
+            {
+                margin: 16px 0px;
+            }
+
+            &.fixed-top
+            {
+                position: fixed;
+                top: 60px;
+                width: 100%;
+                max-width: 768px;
+            }
+        }
 
         .view-edit__border
         {
             border-top: 1px solid rgba(0,0,0,.1);
+        }
+
+        .view-edit__preview
+        {
+            padding: 16px 48px;
         }
     }
 }
