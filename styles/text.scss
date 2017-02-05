@@ -10,8 +10,11 @@
 
     h1
     {
-        margin: 16px 0px;
+        margin: 32px 0px 16px 0px;
         font-size: 36px;
+        text-align: center;
+        border-bottom: 1px solid rgba(black, 0.1);
+        padding-bottom: 16px;
     }
 
     h2

@@ -26,36 +26,29 @@ body
 
     .view-edit
     {
-        max-width: 768px;
-        margin: 48px auto;
-        
-        .edit-toolbar
+
+        display: flex;
+        padding: 0px 48px;
+        background-color: white;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+
+        .view-edit__content
         {
-            display: flex;
-            padding: 0px 48px;
-            background-color: white;
+            max-width: 768px;
+            margin: 36px auto;
+        }
 
-            .button-bar, .view-edit__info
+        .view-edit__preview
+        {
+            padding: 16px 48px;
+            
+            .view-edit__preview-info
             {
-                margin: 16px 0px;
-            }
+                margin-top: 16px;
+                text-align: center;
 
-            .button-bar
-            {
-                padding: 10px 0px;
-            }
-
-            &.fixed-top
-            {
-                position: fixed;
-                top: 60px;
-                width: 100%;
-                max-width: 768px;
-                padding: 0px;
-            }
-
-            .view-edit__info
-            {
                 h4
                 {
                     margin: 0;
@@ -70,23 +63,28 @@ body
             }
         }
 
-        .view-edit__border
-        {
-            border-top: 1px solid rgba(0,0,0,.1);
-        }
-
-        .view-edit__preview
-        {
-            padding: 16px 48px;
-        }
-
         .view-edit__md-editor
         {
+            font-family: 'Roboto Mono', monospace;
             padding: 16px 48px;
             white-space: pre;
-            line-height: 1.5;
+            line-height: 24px;
+            font-size: 14px;
 
-            &:focus
+            .view-edit__editor-docname
+            {
+                font-size: 24px;
+                text-align: center;
+                margin: 24px;
+
+
+                &:focus
+                {
+                    outline: none;
+                }
+            }
+
+            .view-edit__editor-content:focus
             {
                 outline: none;
                 background-color: #FAFAFA
