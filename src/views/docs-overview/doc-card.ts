@@ -1,5 +1,4 @@
 import { bindable, inject, bindingMode, customElement } from 'aurelia-framework';
-import {DataAttributeObserver} from 'aurelia-binding';
 
 @inject(Element)
 @customElement("doc-card")

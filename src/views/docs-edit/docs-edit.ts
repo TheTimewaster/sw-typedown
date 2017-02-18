@@ -1,39 +1,37 @@
-import { RouteConfig, NavigationInstruction, RoutableComponentActivate } from "aurelia-router";
 import { inject } from "aurelia-framework";
-import { MdDocumentService } from "../../services/MdDocumentService";
-import { MdDocument } from "../../data/MdDocument";
+import { Router, RouteConfig, NavigationInstruction } from "aurelia-router";
+import { MdDocumentService } from "services/MdDocumentService";
+import { MdDocument } from "data/MdDocument";
 import { markdown } from "markdown";
+import * as MDL from "material-design-lite";
 import * as $ from "jquery";
 
-@inject(MdDocumentService, Element)
-export class DocsEdit implements RoutableComponentActivate
+@inject(MdDocumentService, Element, Router)
+export class DocsEdit
 {
     private _docId: number;
     private _service: MdDocumentService;
     private _element: Element;
+    private _router: Router;
     parsedContent: string
 
     public document: MdDocument;
     public editMode: boolean = false;
     public newDocTitle: string;
 
-    constructor(service: MdDocumentService, element: Element)
+    constructor(service: MdDocumentService, element: Element, router: Router)
     {
         this._service = service;
         this._element = element;
+        this._router = router;
     }
 
-    activate(params: any, routeConfig: RouteConfig, navigationInstruction: NavigationInstruction): void
+    activate(params: any, routeConfig: RouteConfig, navigationInstruction: NavigationInstruction): Promise<any>
     {
         this._docId = params.id;
-    }
-
-    attached()
-    {
-        let me = this;
-
+        let me = this
         // fetch current document from service
-        this._service.getDocument(this._docId).then((mdDoc: MdDocument) =>
+        return this._service.getDocument(this._docId).then((mdDoc: MdDocument) =>
         {
             // parse markdown document
             me.document = mdDoc;
@@ -42,22 +40,29 @@ export class DocsEdit implements RoutableComponentActivate
             // pass title
             me.newDocTitle = me.document.title;
 
-            // pass the parsed HTML node to preview container
-            document.querySelectorAll(".view-edit__preview-content")[ 0 ].innerHTML = me.parsedContent;
-
-            // notify MDL to update components
-            componentHandler.upgradeAllRegistered();
+            routeConfig.navModel.setTitle(me.document.title);
         }).catch((error: any) =>
         {
             console.log(error);
         });
+    }
+
+    attached()
+    {
+        let me = this;
+        // pass the parsed HTML node to preview container
+        document.querySelectorAll(".view-edit__preview-content")[ 0 ].innerHTML = me.parsedContent;
+
+        // notify MDL to update components
+        MDL.componentHandler.upgradeAllRegistered();
 
         /**
          * prevent adding div on enter when in edit mode
          * http://stackoverflow.com/questions/18552336/prevent-contenteditable-adding-div-on-enter-chrome
          */
-        $(this._element).find("#view-edit__md-editor").keydown((e) => {
-            if(e.keyCode === 13)
+        $(this._element).find("#view-edit__md-editor").keydown((e) =>
+        {
+            if (e.keyCode === 13)
             {
                 // insert 2 br tags
                 document.execCommand('insertHTML', false, '<br><br>');
@@ -69,7 +74,7 @@ export class DocsEdit implements RoutableComponentActivate
     switchToEditMode()
     {
         this.editMode = !this.editMode;
-        let textArea : HTMLElement = document.getElementById("view-edit__md-editor");
+        let textArea: HTMLElement = document.getElementById("view-edit__md-editor");
         textArea.textContent = this.document.content;
     }
 
@@ -77,11 +82,11 @@ export class DocsEdit implements RoutableComponentActivate
     {
         // TODO: save when switch to preview mode
         this.editMode = !this.editMode;
-        let textArea : HTMLElement = document.getElementById("view-edit__md-editor");
+        let textArea: HTMLElement = document.getElementById("view-edit__md-editor");
 
         // pass content from edit area to class member
         this.document.content = textArea.innerText;
-        if(this.newDocTitle !== this.document.title)
+        if (this.newDocTitle !== this.document.title)
         {
             this.document.title = this.newDocTitle;
         }

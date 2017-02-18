@@ -1,14 +1,7 @@
 <template>
+    <require from="./components/app-header"></require>
     <div class="mdl-layout mdl-js-layout mdl-layout--no-drawer-button mdl-layout--fixed-header">
-        <header class="mdl-layout__header mdl-layout__header--seamed">
-            <div class="mdl-layout__header-row">
-                <span class="mdl-layout__title">Typedown</span>
-                <div class="mdl-layout-spacer"></div>
-                <button class="mdl-button mdl-js-button mdl-button--icon">
-                    <i class="material-icons">refresh</i>
-                </button>
-            </div>
-        </header>
+        <app-header></app-header>
         <main class="mdl-layout__content">
             
                 <router-view></router-view>

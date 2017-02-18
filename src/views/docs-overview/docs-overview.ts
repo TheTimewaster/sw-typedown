@@ -1,6 +1,7 @@
 import { inject } from "aurelia-framework";
 import { MdDocumentService } from "../../services/MdDocumentService";
-import { MdDocumentList } from "../../data/MdDocumentList";  
+import { MdDocumentList } from "../../data/MdDocumentList";
+import * as MDL from "material-design-lite";
 
 @inject(MdDocumentService)
 export class DocsOverview
@@ -26,6 +27,6 @@ export class DocsOverview
     attached()
     {
         // update componentHandler for MDL
-        componentHandler.upgradeAllRegistered();
+        MDL.componentHandler.upgradeAllRegistered();
     }
 }

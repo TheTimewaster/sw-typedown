@@ -4,6 +4,7 @@ var typescript = require("gulp-typescript");
 var htmlmin = require("gulp-htmlmin");
 var sourcemaps = require("gulp-sourcemaps");
 var sass = require("gulp-sass");
+var concat = require("gulp-concat");
 var runsequence = require("run-sequence");
 
 gulp.task("clean",function(){
@@ -35,6 +36,7 @@ gulp.task("build-html", function () {
 gulp.task("build-css", function () {
     return gulp.src("styles/**/*.scss")
         .pipe(sass())
+        .pipe(concat("styles.css"))
         .pipe(gulp.dest("dist"));
 });
 

@@ -1,26 +1,35 @@
 {
     "compilerOptions": {
-        "noImplicitAny": true,
+        "module":"amd",
+        "noImplicitAny": false,
         "target": "es5",
         "rootDir": "src",
         "outDir": "dist",
         "moduleResolution": "node",
-        "baseUrl": "./",
+        "emitDecoratorMetadata": true,
+        "removeComments": true,
+        "baseUrl": "./src",
         "paths": {
-            "src/*": [
-                "dist/*"
-            ]
+            "src/*":["src/*"]
         },
         "experimentalDecorators": true
     },
     "filesGlob": [
         "./src/**/*.ts",
-        "typings/index.d.ts"
+        "./typings/index.d.ts",
+        "./jspm_packages/**/*.d.ts"
+    ],
+    "files": [
+        "./typings/index.d.ts"
     ],
     "exclude": [
         "node_modules",
         "jspm_packages",
         "dist",
         "build"
+    ],
+    "include": [
+        "src/**/*",
+        "./typings/index.d.ts"
     ]
 }
