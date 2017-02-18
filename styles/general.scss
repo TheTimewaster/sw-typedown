@@ -84,10 +84,15 @@ body
                 }
             }
 
-            .view-edit__editor-content:focus
+            .view-edit__editor-content
             {
+                white-space: pre-wrap;
+                &:focus
+                {                    
                 outline: none;
                 background-color: #FAFAFA
+                }
+
             }
         }
     }
