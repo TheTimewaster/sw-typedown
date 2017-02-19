@@ -1,31 +1,29 @@
-module.exports={
-    bundles:{
-        "dist/app-build":{
-            "includes":[
+module.exports = {
+    bundles: {
+        "dist/app-build": {
+            "includes": [
                 "[**/*.js]",
                 "**/*.html!text",
                 "**/*.css!text"
             ],
-            options:{
-                inject:true,
-                minify:false
+            options: {
+                inject: true,
+                minify: false
             }
         },
-        "dist/aurelia":{
-            includes:[
+        "dist/aurelia": {
+            includes: [
                 "aurelia-framework",
                 "aurelia-router",
                 "aurelia-polyfills",
                 "aurelia-bootstrapper",
                 "aurelia-fetch-client",
-                "bootstrap",
-                "bootstrap/css/bootstrap.css!text",
                 "fetch",
                 "jquery"
             ],
-            "options":{
-                inject:true,
-                minify:true
+            "options": {
+                inject: true,
+                minify: true
             }
         }
     }

@@ -1,8 +1,8 @@
 import "fetch";
 import { HttpClient } from "aurelia-fetch-client";
-import { MdDocumentList } from "../data/MdDocumentList";
-import { MdDocument } from "../data/MdDocument";
-import { Promise } from "es6-promise";
+import { MdDocumentList } from "data/MdDocumentList";
+import { MdDocument } from "data/MdDocument";
+import { ApiConfig } from "configs";
 
 export class MdDocumentService
 {

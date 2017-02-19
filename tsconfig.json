@@ -1,27 +1,21 @@
 {
     "compilerOptions": {
-        "module":"amd",
+        "module":"commonjs",
         "noImplicitAny": false,
-        "target": "es5",
-        "rootDir": "src",
+        "target": "es2015",
+        "rootDir": ".",
         "outDir": "dist",
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "removeComments": true,
         "baseUrl": "./src",
         "paths": {
-            "src/*":["src/*"]
+            "configs":["../configs/config"],
+            "src/*": ["src/*"]
         },
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "lib": ["dom", "es2015"]
     },
-    "filesGlob": [
-        "./src/**/*.ts",
-        "./typings/index.d.ts",
-        "./jspm_packages/**/*.d.ts"
-    ],
-    "files": [
-        "./typings/index.d.ts"
-    ],
     "exclude": [
         "node_modules",
         "jspm_packages",
@@ -30,6 +24,7 @@
     ],
     "include": [
         "src/**/*",
-        "./typings/index.d.ts"
+        "configs/config.ts",
+        "typings/index.d.ts"
     ]
 }

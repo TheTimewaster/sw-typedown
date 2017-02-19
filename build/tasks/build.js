@@ -6,9 +6,10 @@ var sourcemaps = require("gulp-sourcemaps");
 var sass = require("gulp-sass");
 var concat = require("gulp-concat");
 var runsequence = require("run-sequence");
+var paths = require("../paths");
 
 gulp.task("clean",function(){
-    return gulp.src("dist")
+    return gulp.src([paths.output])
         .pipe(clean({force:true}));
 })
 
@@ -20,29 +21,29 @@ gulp.task("build-system", function () {
         });
     }
 
-    return gulp.src("src/**/*.ts")
+    return gulp.src(paths.dtsSrc.concat(paths.source))
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(typescriptCompiler())
-        .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/src" }))
-        .pipe(gulp.dest("dist"));
+        .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/src"}))
+        .pipe(gulp.dest(paths.output));
 });
 
 gulp.task("build-html", function () {
-    return gulp.src("src/**/*.html")
+    return gulp.src(paths.html)
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest(paths.output));
 });
 
 gulp.task("build-css", function () {
-    return gulp.src("styles/**/*.scss")
+    return gulp.src(paths.scss)
         .pipe(sass())
         .pipe(concat("styles.css"))
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest(paths.output));
 });
 
 gulp.task("copy-resources", function () {
     return gulp.src("src/**/*.json")
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest(paths.output));
 });
 
 gulp.task("build", function (callback) {

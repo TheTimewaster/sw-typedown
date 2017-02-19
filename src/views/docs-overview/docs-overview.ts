@@ -1,6 +1,6 @@
 import { inject } from "aurelia-framework";
-import { MdDocumentService } from "../../services/MdDocumentService";
-import { MdDocumentList } from "../../data/MdDocumentList";
+import { MdDocumentService } from "services/MdDocumentService";
+import { MdDocumentList } from "data/MdDocumentList";
 import * as MDL from "material-design-lite";
 
 @inject(MdDocumentService)
