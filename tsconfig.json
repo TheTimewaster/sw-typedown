@@ -18,13 +18,13 @@
     },
     "exclude": [
         "node_modules",
-        "jspm_packages",
         "dist",
         "build"
     ],
     "include": [
         "src/**/*",
         "configs/config.ts",
-        "typings/index.d.ts"
+        "typings/index.d.ts",
+        "jspm_packages/**/*.d.ts"
     ]
 }

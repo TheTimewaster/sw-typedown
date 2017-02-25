@@ -1,4 +1,4 @@
-import { inject, customElement } from "aurelia-framework"
+import { inject, customElement } from "aurelia-framework";
 import { Router } from "aurelia-router";
 import * as MDL from "material-design-lite";
 

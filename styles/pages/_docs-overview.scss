@@ -1,0 +1,21 @@
+.view-all
+{
+    max-width: 1024px;
+    .mdl-card
+    {
+        width: 100%;
+
+        .mdl-card__title
+        {
+            height: 130px;
+            background-color: $primary-color;
+            color: white;
+        }
+
+        .mdl-card__actions
+        {
+            display: flex;
+        }
+
+    }
+}

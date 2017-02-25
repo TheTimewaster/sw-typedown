@@ -1,25 +1,9 @@
 <template>
     <div class="view-edit">
         <div class="view-edit__content md-card mdl-shadow--2dp">
-            <div class="view-edit__preview" show.bind="!editMode">
-                <div class="view-edit__preview-info">
-                    <h4 class="document-title">${document.title}</h4>
-                    <span class="last-edited">Last edited: 17.01.2017 10:56</span>
-                </div>
-                <div class="view-edit__preview-content">
-                    <!--md preview goes here-->
-                </div>
-            </div>
-            <div class="view-edit__editor view-edit__md-editor" show.bind="editMode">
-                <!--document name can be changed here-->
-                <div type="text" class="view-edit__editor-docname" textcontent.bind="newDocTitle" contenteditable="true">
-                </div>
-                <div class="view-edit__editor-content" contenteditable="true" id="view-edit__md-editor">
-                    <!--md code goes here-->
-                </div>
-            </div>
-        </div>
 
+            <textarea id="md-editor"></textarea>
+        </div>
         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" if.bind="!editMode" id="view-edit__edit-btn"
             click.delegate="switchToEditMode()">
             <i class="material-icons">edit</i>

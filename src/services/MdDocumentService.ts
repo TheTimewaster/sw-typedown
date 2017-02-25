@@ -16,7 +16,7 @@ export class MdDocumentService
     fetchAllDocuments(): Promise<MdDocumentList>
     {
         let me = this;
-        return new Promise<MdDocumentList>(function (resolve, reject)
+        return new Promise<MdDocumentList>(function (resolve: Function, reject: Function)
         {
             me._client.fetch("dist/services/example-list.json")
                 .then((response: any) => response.json())

@@ -1,14 +1,14 @@
-const DEFAULT_TITLE:string = "[Untitled]";
-const DEFAULT_ID:number = 0;
+const DEFAULT_TITLE: string = "[Untitled]";
+const DEFAULT_ID: number = 0;
 
 export class MdDocument
 {
     private _title: string;
     private _id: number;
-    private _content :string;
+    private _content: string;
     private _lastModified: Date;
 
-    constructor(title:string = DEFAULT_TITLE, id:number = DEFAULT_ID, content:string = "" )
+    constructor(title: string = DEFAULT_TITLE, id: number = DEFAULT_ID, content: string = "")
     {
         this._title = title;
         this._id = id;
@@ -21,12 +21,12 @@ export class MdDocument
         this._id = id;
     }
 
-    set title(title:string)
+    set title(title: string)
     {
         this._title = title;
     }
 
-    set content(content:string)
+    set content(content: string)
     {
         this._content = content;
     }
@@ -46,7 +46,7 @@ export class MdDocument
         this._lastModified = new Date();
     }
 
-    toRawObject():Object
+    toRawObject(): Object
     {
         return {
             id: this._id,
@@ -56,7 +56,7 @@ export class MdDocument
         };
     }
 
-    toJson():string
+    toJson(): string
     {
         return JSON.stringify(this.toRawObject());
     }

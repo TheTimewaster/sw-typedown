@@ -5,7 +5,7 @@ var styles = "styles/";
 
 module.exports = {
     root: appRoot,
-    source: appRoot + '**/*.ts',
+    tsSource: appRoot + '**/*.ts',
     html: appRoot + '**/*.html',
     scss: styles + '**/*.scss',
     style: 'dist/**/*.css',

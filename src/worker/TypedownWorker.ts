@@ -1,7 +1,7 @@
 let CACHE_NAME = "typedown-cache-v1";
 let urlsToCache = [
     "/"
-]
+];
 
 self.addEventListener("install", (event: InstallEvent) =>
 {

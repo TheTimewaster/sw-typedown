@@ -4,5 +4,9 @@
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
     "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
-    "html.format.unformatted": "abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, select, small, strong, sub, sup, textarea, tt, var"
+    "html.format.unformatted": "abbr, acronym, b, bd, big, br, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, select, small, strong, sub, sup, textarea, tt, var",
+    "tslint.enable": true,
+    "sfmt.braces": "allman",
+    "sfmt.cssinsertlines": false,
+    "sfmt.insize": 4
 }

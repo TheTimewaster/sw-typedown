@@ -1,3 +1,6 @@
-@import "general.scss";
-@import "buttons.scss";
-@import "text.scss";
+@import "components/buttons";
+@import "definitions/colors";
+@import "definitions/text";
+@import "pages/docs-overview";
+@import "pages/docs-edit";
+@import "vendor/codemirror";
