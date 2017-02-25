@@ -15,9 +15,41 @@
     right: 16px;
 }
 
-#view-edit__edit-btn, #view_edit__preview-btn
+#view-edit__edit-btn,
+#view_edit__preview-btn
 {
     position: fixed;
     bottom: 16px;
     right: 32px;
+}
+
+.editor-toolbar
+{
+    a.material-icons
+    {
+        &.icon-bold:before
+        {
+            content: "format_bold";
+        }
+        &.icon-italic:before
+        {
+            content: "format_italic";
+        }
+        &.icon-heading:before
+        {
+            content: "format_size";
+        }
+        &.icon-strikethrough:before
+        {
+            content: "format_strikethrough";
+        }
+        &.icon-quote:before
+        {
+            content: "format_quote";
+        }
+                &.icon-link:before
+        {
+            content: "insert_link";
+        }
+    }
 }

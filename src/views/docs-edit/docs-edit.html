@@ -1,7 +1,7 @@
 <template>
     <div class="view-edit">
         <div class="view-edit__content md-card mdl-shadow--2dp">
-
+            <div contenteditable="true">${newDocTitle}</div>
             <textarea id="md-editor"></textarea>
         </div>
         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" if.bind="!editMode" id="view-edit__edit-btn"

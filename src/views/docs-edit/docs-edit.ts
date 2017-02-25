@@ -2,10 +2,11 @@ import { inject } from "aurelia-framework";
 import { Router, RouteConfig, NavigationInstruction } from "aurelia-router";
 import { MdDocumentService } from "services/MdDocumentService";
 import { MdDocument } from "data/MdDocument";
-// import { markdown } from "markdown";
 import * as MDL from "material-design-lite";
 import * as $ from "jquery";
 import * as SimpleMDE from "simplemde";
+import EditorConfig from "./EditorConfig";
+
 
 @inject(MdDocumentService, Element, Router)
 export class DocsEdit
@@ -50,7 +51,10 @@ export class DocsEdit
     attached()
     {
         let me = this;
-        this._editor = new SimpleMDE({ element: document.getElementById("md-editor") });
+        // initialize config
+        let config = EditorConfig;
+        config.element = document.getElementById("md-editor");
+        this._editor = new SimpleMDE(config);
         // pass the document content to editor
         this._editor.value(me.document.content);
 
