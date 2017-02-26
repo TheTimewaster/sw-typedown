@@ -15,6 +15,7 @@ System.config({
     "aurelia-framework": "npm:aurelia-framework@1.0.8",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.1.0",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
+    "dialog-polyfill": "npm:dialog-polyfill@0.4.7",
     "es6-promise": "npm:es6-promise@4.0.5",
     "fetch": "github:github/fetch@2.0.1",
     "jquery": "npm:jquery@3.1.1",

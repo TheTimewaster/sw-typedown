@@ -28,6 +28,7 @@
   },
   "globalDependencies": {
     "aurelia-fetch-client-fix": "file:custom_typings/aurelia-fetch-client-fix.d.ts",
+    "html-dialog": "file:custom_typings/htmldialog.d.ts",
     "service_worker_api": "registry:dt/service_worker_api#0.0.0+20170102221807",
     "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20161120230953",
     "whatwg-streams": "registry:dt/whatwg-streams#0.0.0+20161214010628"

@@ -1,0 +1,21 @@
+<template>
+    <dialog id="enable-worker-dialog" class="mdl-dialog">
+        <h4 class="mdl-dialog__title">
+            Enable Service Worker?
+        </h4>
+        <div class="mdl-dialog__content">
+            <p>With Service Worker enabled, you are able to use application resources and access your documents without a internet
+                connection.
+            </p>
+            <p>Still the technology is in development. So there is no guarantee, that the functionality will work properly.</p>
+            <p><strong>WARNING: </strong>By deleting the browser data all offline created documents, changes and you will not
+                be able to use the application offline anymore.</p>
+            <p>Are you sure that you want to enable it? You can still enable or disable Service Worker in the settings menu in the upper
+                right corner.</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button mdl-button--primary" click.trigger="aggreeButtonClicked()">Enable</button>
+            <button type="button" class="mdl-button" click.trigger="disagreeButtonClicked()">Disable</button>
+        </div>
+    </dialog>
+</template>

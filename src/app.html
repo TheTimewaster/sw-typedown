@@ -1,11 +1,11 @@
 <template>
     <require from="./components/app-header"></require>
-    <div class="mdl-layout mdl-js-layout mdl-layout--no-drawer-button mdl-layout--fixed-header">
+    <require from="./components/enable-worker-dialog"></require>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <app-header></app-header>
         <main class="mdl-layout__content">
-            
-                <router-view></router-view>
-            
+            <router-view></router-view>
         </main>
     </div>
+    <enable-worker-dialog></enable-worker-dialog>
 </template>

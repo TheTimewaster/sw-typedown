@@ -1,5 +1,13 @@
 <template>
-    <header class="mdl-layout__header mdl-layout__header--seamed">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout-icon" if.bind="_router.currentInstruction.config.name === 'root'">
+            <i class="material-icons">face</i>
+        </div>
+        <div class="mdl-layout-icon">
+            <a href="/#" class="mdl-button mdl-js-button mdl-button--icon" if.bind="_router.currentInstruction.config.name === 'doc'">
+                <i class="material-icons">arrow_back</i>
+            </a>
+        </div>
         <div class="mdl-layout__header-row">
             <span class="mdl-layout__title">${_router.currentInstruction.config.navModel.title}</span>
             <div class="mdl-layout-spacer"></div>
