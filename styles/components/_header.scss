@@ -1,0 +1,24 @@
+.mdl-layout--fixed-header
+{
+    .mdl-layout__header
+    {
+        .mdl-layout__header-row
+        {
+            .mdl-button
+            {
+                margin: 16px;
+                &:last-child
+                {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1024px)
+    {
+        .mdl-layout__header
+        {
+            display: flex;
+        }
+    }
+}

@@ -1,7 +1,7 @@
-import { inject } from "aurelia-framework";
+import { inject, LogManager } from "aurelia-framework";
 import { Router, RouterConfiguration, RouteConfig } from "aurelia-router";
 
-@inject(Element)
+@inject(Element, LogManager)
 export class App
 {
     private _element: Element;

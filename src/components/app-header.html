@@ -1,7 +1,9 @@
 <template>
     <header class="mdl-layout__header">
         <div class="mdl-layout-icon" if.bind="_router.currentInstruction.config.name === 'root'">
-            <i class="material-icons">face</i>
+            <button href="/#" class="mdl-button mdl-js-button mdl-button--icon" if.bind="_router.currentInstruction.config.name === 'root'">
+                <i class="material-icons">code</i>
+            </button>
         </div>
         <div class="mdl-layout-icon">
             <a href="/#" class="mdl-button mdl-js-button mdl-button--icon" if.bind="_router.currentInstruction.config.name === 'doc'">
@@ -13,6 +15,9 @@
             <div class="mdl-layout-spacer"></div>
             <button class="mdl-button mdl-js-button mdl-button--icon">
                 <i class="material-icons">refresh</i>
+            </button>
+            <button class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">settings</i>
             </button>
         </div>
     </header>

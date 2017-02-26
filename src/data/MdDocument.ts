@@ -61,3 +61,5 @@ export class MdDocument
         return JSON.stringify(this.toRawObject());
     }
 }
+
+export default MdDocument;

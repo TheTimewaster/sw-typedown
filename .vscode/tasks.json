@@ -5,7 +5,6 @@
     "command": "gulp",
     "isShellCommand": true,
     "args": [
-        "--no-color"
     ],
     "tasks": [
         {

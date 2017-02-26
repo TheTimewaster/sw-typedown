@@ -2,6 +2,7 @@ var appRoot = "src/";
 var outputRoot = "dist/";
 var exporSrvtRoot = "export/";
 var styles = "styles/";
+var configs = "configs/"
 
 module.exports = {
     root: appRoot,

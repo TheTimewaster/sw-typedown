@@ -10,7 +10,7 @@
         "removeComments": true,
         "baseUrl": "./src",
         "paths": {
-            "configs":["../configs/config"],
+            "configs":["../configs/configs"],
             "src/*": ["src/*"]
         },
         "sourceMap": true,
