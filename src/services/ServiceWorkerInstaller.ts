@@ -36,12 +36,10 @@ export class ServiceWorkerInstaller
 
     public getServiceWorkerRunning(notify: boolean = false): Promise<boolean>
     {
-        return navigator.serviceWorker.getRegistration().then((registration) => {
-            console.log(registration);
+        return navigator.serviceWorker.ready.then((registration) =>
+        {
+            console.log(registration.active.state);
             return false;
-        })
-        .catch((error) => {
-            console.log(error);
         });
     }
 }

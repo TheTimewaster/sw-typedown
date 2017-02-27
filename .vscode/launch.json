@@ -11,6 +11,13 @@
                 "build"
             ]
         },
+                {
+            "type": "node",
+            "request": "launch",
+            "name": "http server",
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/server/server.js"
+        },
         {
             "name": "Attach",
             "type": "chrome",

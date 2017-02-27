@@ -1,34 +1,37 @@
 import { inject } from "aurelia-framework";
 import { MdDocumentService } from "services/MdDocumentService";
-import { MdDocumentList } from "data/MdDocumentList";
+import { MdDocumentObject } from "data/MdDocument";
+import { Router } from "aurelia-router";
 import * as MDL from "material-design-lite";
 
-@inject(MdDocumentService, Element)
+@inject(MdDocumentService, Element, Router)
 export class DocsOverview
 {
-    private _message: string;
     private _service: MdDocumentService;
     private _element: Element;
-    mdDocList: MdDocumentList;
+    private _mdDocList: Array<MdDocumentObject>;
+    private _router: Router;
 
-    constructor(service: MdDocumentService, element: Element)
+    constructor(service: MdDocumentService, element: Element, router: Router)
     {
-        this._message = "Hello!";
         this._service = service;
         this._element = element;
+        this._router = router;
     }
 
-    activate()
-    {
-        let me = this;
-        this._service.fetchAllDocuments().then(function (docList: MdDocumentList)
-        {
-            me.mdDocList = docList;
-        });
-    }
     attached()
     {
-        // update componentHandler for MDL
-        MDL.componentHandler.upgradeElement(this._element);
+        let me = this;
+        this._service.fetchAllDocuments().then((docList: Array<MdDocumentObject>) =>
+        {
+            me._mdDocList = docList;
+            // update componentHandler for MDL
+            MDL.componentHandler.upgradeElement(me._element);
+        });
+    }
+
+    createNewDocument($event)
+    {
+        this._router.navigateToRoute("doc", { id: "new" });
     }
 }

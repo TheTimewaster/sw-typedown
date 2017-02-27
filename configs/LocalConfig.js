@@ -1,7 +1,7 @@
 // default localhost for development
 export let ApiConf = {
     "host": "localhost",
-    "port": "8080",
+    "port": "3000",
     "secure": false
 };
 

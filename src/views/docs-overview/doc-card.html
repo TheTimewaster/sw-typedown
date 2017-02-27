@@ -2,23 +2,23 @@
     <div class="mdl-card mdl-shadow--4dp">
 
         <div class=" mdl-card__title ">
-            <h2 class="mdl-card__title-text ">${docInfo.title}</h2>
+            <h2 class="mdl-card__title-text ">${docInfo._title}</h2>
         </div>
         <div class="mdl-card__supporting-text ">
             <span>Last edited: 2017-02-15</span>
         </div>
         <div class="mdl-card__actions mdl-card--border ">
-            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+            <button class="mdl-button mdl-js-button mdl-button--icon ${(docInfo._offline)? 'mdl-button--colored' : ''}" click.trigger="serveDocumentOffline()">
                 <i class="material-icons">offline_pin</i>
             </button>
             <div class="mdl-layout-spacer"></div>
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${'/#/view/doc/' + docInfo.id}">edit</a>
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="${'/#/view/doc/' + docInfo._id}">edit</a>
         </div>
         <div class="mdl-card__menu">
-            <button id="${'menu-' + docInfo.id}" class="mdl-button mdl-js-button mdl-button--icon">
+            <button id="${'menu-' + docInfo._id}" class="mdl-button mdl-js-button mdl-button--icon">
                 <i class="material-icons">more_vert</i>
             </button>
-            <ul data-mdl-for="${'menu-' + docInfo.id}" for="${'menu-' + docInfo.id}" class="mdl-menu mdl-js-menu mdl-menu--bottom-right">
+            <ul data-mdl-for="${'menu-' + docInfo._id}" for="${'menu-' + docInfo._id}" class="mdl-menu mdl-js-menu mdl-menu--bottom-right">
                 <li class="mdl-menu__item">Remove</li>
             </ul>
         </div>

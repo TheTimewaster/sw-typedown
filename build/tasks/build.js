@@ -8,6 +8,7 @@ var sass = require("gulp-sass");
 var concat = require("gulp-concat");
 var runsequence = require("run-sequence");
 var paths = require("../paths");
+var rename = require("gulp-rename");
 
 gulp.task("clean", function ()
 {
@@ -39,6 +40,12 @@ gulp.task("build-system", function ()
         .pipe(gulp.dest(paths.output));
 });
 
+gulp.task("rename-config", function() {
+    return gulp.src(paths.configsSource.dev)
+    .pipe(rename("configs.js"))
+    .pipe(gulp.dest(paths.output));
+})
+
 gulp.task("build-html", function ()
 {
     return gulp.src(paths.html)
@@ -62,5 +69,5 @@ gulp.task("copy-resources", function ()
 
 gulp.task("build", function (callback)
 {
-    runsequence("clean", [ "ts-lint", "copy-resources", "build-system", "build-html", "build-css" ])
+    runsequence("clean", [ "ts-lint", "copy-resources", "build-system", "build-html", "build-css", "rename-config" ])
 })

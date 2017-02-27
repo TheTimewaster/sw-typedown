@@ -2,7 +2,7 @@ var appRoot = "src/";
 var outputRoot = "dist/";
 var exporSrvtRoot = "export/";
 var styles = "styles/";
-var configs = "configs/"
+var configsRoot = "configs/"
 
 module.exports = {
     root: appRoot,
@@ -14,5 +14,8 @@ module.exports = {
     exportSrv: exporSrvtRoot,
     dtsSrc: [
         './typings/**/*.d.ts'
-    ]
+    ],
+    configsSource: {
+        dev: configsRoot + "LocalConfig.js"
+    }
 }
