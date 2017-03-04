@@ -5,11 +5,11 @@ export class MdDocument
 {
     private _documentObject: MdDocumentObject;
 
-    constructor(title: string = DEFAULT_TITLE, id: number = DEFAULT_ID, content: string = "", lastModified?: number)
+    constructor(title: string = DEFAULT_TITLE, id: string, lastModified?: number, content: string = "")
     {
         this._documentObject = {
             _title: title,
-            _id: id,
+            _id: (id) ? id : new Date().getTime().toString(),
             _content: content,
             _lastModified: lastModified
         };
@@ -30,9 +30,9 @@ export class MdDocument
         this._documentObject._offline = offline;
     }
 
-    get id()
+    get id(): string
     {
-        return this._documentObject._id;
+        return this._documentObject._id as string;
     }
 
     get title()
@@ -45,9 +45,14 @@ export class MdDocument
         return this._documentObject._content;
     }
 
-    updateLastModified()
+    get offline()
     {
-        this._documentObject._lastModified = new Date().getTime();
+        return this._documentObject._offline;
+    }
+
+    get lastModified()
+    {
+        return this._documentObject._lastModified;
     }
 
     get documentObject()
@@ -63,7 +68,7 @@ export class MdDocument
 
 export type MdDocumentObject = {
     _title: string
-    _id: number;
+    _id: string;
     _content?: string;
     _lastModified?: number;
     _offline?: boolean

@@ -1,16 +1,21 @@
 <template>
+    <require from="converter/date"></require>
     <div class="view-edit">
         <div class="view-edit__content md-card mdl-shadow--2dp">
-            <div contenteditable="true">${newDocTitle}</div>
-            <textarea id="md-editor"></textarea>
+            <div class="view-edit__header">
+                <div class="view-edit__header_docname mdl-typography--headline mdl-color-text--grey-600">
+                    ${document.title}
+                    <button class="mdl-button mdl-js-button mdl-button--icon view-edit__header-rename">
+                        <i class="material-icons">edit</i>
+                    </button>
+                </div>
+                <div class="view-edit__last-edited">
+                    ${document.lastModified | date}
+                </div>
+            </div>
+            <div class="view-edit__editor">
+                <textarea id="md-editor"></textarea>
+            </div>
         </div>
-        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" if.bind="!editMode" id="view-edit__edit-btn"
-            click.delegate="switchToEditMode()">
-            <i class="material-icons">edit</i>
-            </button>
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" if.bind="editMode" id="view_edit__preview-btn"
-                click.delegate="switchToPreviewMode()">
-                <i class="material-icons">find_in_page</i>
-                </button>
     </div>
 </template>

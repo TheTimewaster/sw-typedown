@@ -1,7 +1,7 @@
 import { inject } from "aurelia-framework";
 import { Router, RouteConfig, NavigationInstruction } from "aurelia-router";
 import { MdDocumentService } from "services/MdDocumentService";
-import { MdDocument } from "data/MdDocument";
+import { MdDocument, MdDocumentObject } from "data/MdDocument";
 import * as MDL from "material-design-lite";
 import * as $ from "jquery";
 import * as SimpleMDE from "simplemde";
@@ -34,10 +34,10 @@ export class DocsEdit
         this._docId = params.id;
         let me = this;
         // fetch current document from service
-        return this._service.getDocument(this._docId).then((mdDoc: MdDocument) =>
+        return this._service.getDocument(this._docId).then((mdDoc: MdDocumentObject) =>
         {
             // parse markdown document
-            me.document = mdDoc;
+            me.document = new MdDocument(mdDoc._title, mdDoc._id as string, mdDoc._lastModified, mdDoc._content);
             // pass title
             me.newDocTitle = me.document.title;
             // set title

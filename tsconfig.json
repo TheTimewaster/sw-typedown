@@ -1,23 +1,32 @@
 {
     "compilerOptions": {
-        "module":"commonjs",
+        "module": "commonjs",
         "noImplicitAny": false,
         "target": "es2015",
         "rootDir": ".",
         "outDir": "dist",
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
-        "removeComments": true,
+        "removeComments": false,
         "baseUrl": "./src",
+        "allowSyntheticDefaultImports": true,
         "paths": {
-            "configs":["../configs/configs"],
-            "src/*": ["src/*"]
+            "configs": [
+                "../configs/configs"
+            ],
+            "src/*": [
+                "src/*"
+            ]
         },
         "sourceMap": true,
         "experimentalDecorators": true,
-        "lib": ["dom", "es2015"]
+        "lib": [
+            "dom",
+            "es2015"
+        ]
     },
     "exclude": [
+        "jspm_packages",
         "node_modules",
         "dist",
         "build"

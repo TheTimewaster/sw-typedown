@@ -21,7 +21,13 @@ export class DocCard
 
     bind()
     {
-        this._document = new MdDocument(this.docInfo._title, this.docInfo._id);
+        this._document = new MdDocument(this.docInfo._title, this.docInfo._id, this.docInfo._lastModified);
+
+        // check if document is saved locally
+        this._docService.checkDocumentIsLocal(this.docInfo._id).then((isOffline) =>
+        {
+            this._document.offline = isOffline;
+        });
     }
 
     attached()
@@ -34,8 +40,8 @@ export class DocCard
     {
         this._docService.getDocument(this._document.id, true).then((doc) =>
         {
-            this._document = doc;
-            this.docInfo._offline = true;
+            // for reprensation
+            this._document.offline = true;
         });
     }
 }
