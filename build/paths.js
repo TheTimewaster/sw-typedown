@@ -3,6 +3,7 @@ var outputRoot = "dist/";
 var exporSrvtRoot = "export/";
 var styles = "styles/";
 var configsRoot = "configs/"
+var workerRoot= "worker/"
 
 module.exports = {
     root: appRoot,
@@ -17,5 +18,7 @@ module.exports = {
     ],
     configsSource: {
         dev: configsRoot + "LocalConfig.js"
-    }
+    },
+    workerSource: workerRoot + "TypedownWorker.ts",
+    workerOutput: "/"
 }
