@@ -27,12 +27,21 @@ export class NotificationWrapper
         this._aggregator.subscribe("notification", this._showNotification.bind(this));
     }
 
-    private _showNotification(message: string)
+    private _showNotification = (notification: string | SnackbarData) =>
     {
-        let data: SnackbarData = {
-            message: message,
-            timeout: 2000
-        };
+        let data: SnackbarData;
+
+        if (typeof notification === "string")
+        {
+            data = {
+                message: notification,
+                timeout: 2000
+            };
+        }
+        if (typeof notification === "object")
+        {
+            data = notification;
+        }
 
         // install notification wrapper
         this._notificationContainer.MaterialSnackbar.showSnackbar(data);

@@ -13,6 +13,16 @@ export class ServiceWorkerInstaller
     constructor(aggregator: EventAggregator)
     {
         this._aggregator = aggregator;
+
+        self.onactivate = function(event)
+        {
+            console.log("activate");
+        };
+
+        self.oninstall = function(event)
+        {
+            console.log("oninstall");
+        };
     }
 
     public serviceWorkerSupported(): boolean
@@ -22,10 +32,20 @@ export class ServiceWorkerInstaller
 
     public installServiceWorker(): Promise<boolean>
     {
-        return navigator.serviceWorker.register("typedown-worker.js").then((registration: ServiceWorkerRegistration) =>
+        return navigator.serviceWorker.register("/typedown-worker.js").then((registration: ServiceWorkerRegistration) =>
         {
             // registration was successful
-            this._aggregator.publish("notification", "Worker installed successfully.");
+            let notification: SnackbarData = {
+                message: "Worker install successful. Refresh application to complete installation.",
+                timeout: 30000,
+                actionHandler: function ()
+                {
+                    location.reload();
+                },
+                actionText: "refresh"
+            };
+
+            this._aggregator.publish("notification", notification);
             return true;
         }).catch((error) =>
         {
@@ -39,6 +59,11 @@ export class ServiceWorkerInstaller
         return navigator.serviceWorker.ready.then((registration) =>
         {
             console.log(registration.active.state);
+            if (registration.active.state === "activated")
+            {
+                this._aggregator.publish("notification", "Worker running.");
+                return true;
+            }
             return false;
         });
     }

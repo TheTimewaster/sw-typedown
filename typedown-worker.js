@@ -3,7 +3,7 @@
 /// <reference path="../typings/globals/whatwg-streams/index.d.ts" />
 let CACHE_NAME = "typedown-cache-v1";
 let urlsToCache = [
-    "/index.html",
+    // "/index.html",
     "/dist/",
     "/jspm_packages/"
 ];
@@ -44,7 +44,7 @@ self.addEventListener("fetch", function (event) {
              */
             let responseToCache = response.clone();
             self.caches.open(CACHE_NAME).then((cache) => {
-                // put ressource to ache
+                // put ressource to cache
                 cache.put(event.request, responseToCache);
             });
             return response;

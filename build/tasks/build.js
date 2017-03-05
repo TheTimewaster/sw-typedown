@@ -46,7 +46,7 @@ gulp.task("build-worker", function ()
     return gulp.src("worker/*.ts")
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(workerCompiler())
-        .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/worker" }))
+        .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "" }))
         .pipe(gulp.dest("./"));
 });
 

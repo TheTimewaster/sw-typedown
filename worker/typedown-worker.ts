@@ -4,7 +4,7 @@
 
 let CACHE_NAME = "typedown-cache-v1";
 let urlsToCache = [
-    "/index.html",
+    "/",
     "/dist/",
     "/jspm_packages/"
 ];
@@ -42,6 +42,7 @@ self.addEventListener("fetch", function (event: FetchEvent)
                  * One time by cache and by the actual application.
                  */
                 let fetchRequest = event.request.clone();
+
                 // start fetch request
                 return fetch(fetchRequest).then((response) =>
                 {
