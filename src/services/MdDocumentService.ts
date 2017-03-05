@@ -35,7 +35,10 @@ export class MdDocumentService
                     resolve(docList);
                 }).catch(() =>
                 {
-
+                    this._db.getAllDocuments().then((documents) =>
+                    {
+                        resolve(documents);
+                    });
                 });
         });
     }
@@ -50,24 +53,30 @@ export class MdDocumentService
      *
      * @memberOf MdDocumentService
      */
-    getDocument(id: number | string, save?: boolean): Promise<MdDocumentObject>
+    getDocument(id: string, save?: boolean): Promise<MdDocumentObject>
     {
         let me = this;
-        return me._fetchDocumentFromServer(id)
-            .then((document: MdDocumentObject) =>
-            {
-                if (save)
+        return new Promise<MdDocumentObject>((resolve, reject) =>
+        {
+            me._fetchDocumentFromServer(id)
+                .then((docObject: MdDocumentObject) =>
                 {
-                    // writing in db can happen asynchronously?
-                    document._offline = true;
-                    this._db.writeDocument(document._id, document);
-                }
-                return document;
-            })
-            .catch(() =>
-            {
-                throw new Error("Error while fetching document from server!");
-            });
+                    if (save)
+                    {
+                        // writing in db can happen asynchronously?
+                        docObject._offline = true;
+                        this._db.writeDocument(docObject._id, docObject);
+                    }
+                    resolve(docObject);
+                })
+                .catch(() =>
+                {
+                    this._db.getDocument(id).then((docObject) =>
+                    {
+                        resolve(docObject);
+                    });
+                });
+        });
     }
 
     /**

@@ -11,7 +11,7 @@ import EditorConfig from "./EditorConfig";
 @inject(MdDocumentService, Element, Router)
 export class DocsEdit
 {
-    private _docId: number;
+    private _docId: string;
     private _service: MdDocumentService;
     private _element: Element;
     private _router: Router;
@@ -29,36 +29,44 @@ export class DocsEdit
         this._router = router;
     }
 
-    activate(params: any, routeConfig: RouteConfig, navigationInstruction: NavigationInstruction): Promise<any>
+    activate(params: any, routeConfig: RouteConfig, navigationInstruction: NavigationInstruction)
     {
         this._docId = params.id;
         let me = this;
-        // fetch current document from service
-        return this._service.getDocument(this._docId).then((mdDoc: MdDocumentObject) =>
-        {
-            // parse markdown document
-            me.document = new MdDocument(mdDoc._title, mdDoc._id as string, mdDoc._lastModified, mdDoc._content);
-            // pass title
-            me.newDocTitle = me.document.title;
-            // set title
-            routeConfig.navModel.setTitle(me.document.title);
-        }).catch((error: any) =>
-        {
-            console.log(error);
-        });
     }
 
     attached()
     {
         let me = this;
-        // initialize config
-        let config = EditorConfig;
-        config.element = document.getElementById("md-editor");
-        this._editor = new SimpleMDE(config);
-        // pass the document content to editor
-        this._editor.value(me.document.content);
-
-        // notify MDL to update components
-        MDL.componentHandler.upgradeAllRegistered();
+        // fetch current document from service
+        this._service.getDocument(this._docId)
+            .then((mdDoc: MdDocumentObject) =>
+            {
+                // parse markdown document
+                me.document = new MdDocument(mdDoc._title, mdDoc._id, mdDoc._lastModified, mdDoc._content);
+                // pass title
+                me.newDocTitle = me.document.title;
+                // set title
+                this._router.currentInstruction.config.navModel.setTitle(me.document.title);
+            })
+            .then(() =>
+            {
+                // initialize editor
+                let config = EditorConfig;
+                config.element = document.getElementById("md-editor");
+                this._editor = new SimpleMDE(config);
+                // pass the document content to editor
+                this._editor.value(this.document.content);
+            })
+            .then(() =>
+            {
+                // notify MDL to update components
+                MDL.componentHandler.upgradeAllRegistered();
+                $("#view-edit__progress").hide();
+            })
+            .catch((error: any) =>
+            {
+                console.log(error);
+            });
     }
 }

@@ -21,6 +21,7 @@ System.config({
     "fetch": "github:github/fetch@2.0.1",
     "jquery": "npm:jquery@3.1.1",
     "localforage": "npm:localforage@1.5.0",
+    "localforage-getitems": "npm:localforage-getitems@1.3.0",
     "material-design-lite": "github:google/material-design-lite@1.3.0",
     "simplemde": "npm:simplemde@1.11.2",
     "typescript": "npm:typescript@1.8.10",
@@ -257,6 +258,9 @@ System.config({
       "inline-process-browser": "npm:inline-process-browser@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "unreachable-branch-transform": "npm:unreachable-branch-transform@0.3.0"
+    },
+    "npm:localforage-getitems@1.3.0": {
+      "localforage": "npm:localforage@1.5.0"
     },
     "npm:localforage@1.5.0": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",

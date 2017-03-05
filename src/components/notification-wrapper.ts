@@ -18,7 +18,6 @@ export class NotificationWrapper
     {
         this._aggregator = aggregator;
         this._element = element;
-
     }
 
     attached()

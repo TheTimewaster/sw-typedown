@@ -3,7 +3,7 @@
 /// <reference path="../typings/globals/whatwg-streams/index.d.ts" />
 let CACHE_NAME = "typedown-cache-v1";
 let urlsToCache = [
-    // "/index.html",
+    "/",
     "/dist/",
     "/jspm_packages/"
 ];
@@ -31,7 +31,8 @@ self.addEventListener("fetch", function (event) {
          */
         let fetchRequest = event.request.clone();
         // start fetch request
-        return fetch(fetchRequest).then((response) => {
+        return fetch(fetchRequest)
+            .then((response) => {
             /**
              * Check if the response is valid. The 'basic' type indicates it is coming from our origin.
              */
@@ -44,10 +45,14 @@ self.addEventListener("fetch", function (event) {
              */
             let responseToCache = response.clone();
             self.caches.open(CACHE_NAME).then((cache) => {
-                // put ressource to cache
+                // put ressource to ache
                 cache.put(event.request, responseToCache);
             });
             return response;
+        }).catch(() => {
+            if (fetchRequest.url.indexOf("/docs")) {
+                return new Response("offline", { status: 250 });
+            }
         });
     }));
 });

@@ -13,16 +13,6 @@ export class ServiceWorkerInstaller
     constructor(aggregator: EventAggregator)
     {
         this._aggregator = aggregator;
-
-        self.onactivate = function(event)
-        {
-            console.log("activate");
-        };
-
-        self.oninstall = function(event)
-        {
-            console.log("oninstall");
-        };
     }
 
     public serviceWorkerSupported(): boolean

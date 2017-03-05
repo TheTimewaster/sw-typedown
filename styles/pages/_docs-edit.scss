@@ -1,11 +1,13 @@
 @import "../common/colors";
 .view-edit
 {
-    display: flex;
-    padding: 0 48px;
-    position: relative;
     width: 100%;
     box-sizing: border-box;
+
+    .mdl-progress
+    {
+        width: 100%;
+    }
 
     .view-edit__content
     {
