@@ -1,8 +1,12 @@
+/// <reference path="../typings/globals/service_worker_api/index.d.ts" />
+/// <reference path="../typings/globals/whatwg-fetch/index.d.ts" />
+/// <reference path="../typings/globals/whatwg-streams/index.d.ts" />
+
 let CACHE_NAME = "typedown-cache-v1";
 let urlsToCache = [
     "/index.html",
-    "/dist/styles.css",
-    "/#/view/all"
+    "/dist/",
+    "/jspm_packages/"
 ];
 
 self.addEventListener("install", (event: InstallEvent) =>
@@ -32,12 +36,12 @@ self.addEventListener("fetch", function (event: FetchEvent)
                 {
                     return response;
                 }
+
                 /**
                  * Request is from type Stream and can be consumed only one.
                  * One time by cache and by the actual application.
                  */
                 let fetchRequest = event.request.clone();
-
                 // start fetch request
                 return fetch(fetchRequest).then((response) =>
                 {

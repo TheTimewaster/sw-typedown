@@ -14,10 +14,14 @@
             "configs": [
                 "../configs/configs"
             ],
+            "worker": [
+                "../worker/*"
+            ],
             "src/*": [
                 "src/*"
             ]
         },
+        "allowJs": true,
         "sourceMap": true,
         "experimentalDecorators": true,
         "lib": [
@@ -32,9 +36,10 @@
         "build"
     ],
     "include": [
-        "src/**/*",
+        "src/**/*.ts",
         "configs/config.ts",
         "typings/index.d.ts",
+        "worker/*.ts",
         "jspm_packages/**/*.d.ts"
     ]
 }

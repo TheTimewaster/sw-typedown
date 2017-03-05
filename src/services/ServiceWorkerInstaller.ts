@@ -22,7 +22,7 @@ export class ServiceWorkerInstaller
 
     public installServiceWorker(): Promise<boolean>
     {
-        return navigator.serviceWorker.register("/dist/worker/TypedownWorker.js").then((registration: ServiceWorkerRegistration) =>
+        return navigator.serviceWorker.register("typedown-worker.js").then((registration: ServiceWorkerRegistration) =>
         {
             // registration was successful
             this._aggregator.publish("notification", "Worker installed successfully.");
