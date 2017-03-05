@@ -33,6 +33,9 @@ export class MdDocumentService
                 .then((docList: Array<MdDocumentObject>) =>
                 {
                     resolve(docList);
+                }).catch(() =>
+                {
+
                 });
         });
     }
